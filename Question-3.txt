@@ -1,0 +1,49 @@
+package com.org.practice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class Practice1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","D:\\selenium class\\Drivers\\chromedriver101\\chromedriver_win32 (2)\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+// Launching URL
+		driver.get("http://jt-dev.azurewebsites.net/#/SignUp");
+		
+// Maximizing the browser
+		driver.manage().window().maximize();
+		
+//Validate the dropdown
+//Validate English language
+		driver.findElement(By.id("language")).click();
+		driver.findElement(By.xpath("//div[@id='ui-select-choices-row-1-0']")).click();////Language select English
+		System.out.println("English");
+		
+//Validate Dutch language
+	   /* driver.findElement(By.id("language")).click();
+		driver.findElement(By.xpath("//div[@id='ui-select-choices-row-1-1']")).click();//Language select Dutch
+		System.out.println("Dutch");*/
+		
+//Enter Name
+		driver.findElement(By.id("name")).sendKeys("vaishnavi");
+		
+//Enter Name as well as Orgname		
+		driver.findElement(By.name("orgName")).sendKeys("Thinkbridge");
+		
+//Email address
+		driver.findElement(By.name("email")).sendKeys("ascd19@gmail.com");
+		
+//Click on "I agree to the Terms And Conditions" 
+		//driver.findElement(By.xpath("//span[contains(text(),'Ik ga akkoord met de')]")).click();
+		driver.findElement(By.xpath("//span[contains(text(),'I agree to the')]")).click();
+		
+//Click on "SignUp" 
+		driver.findElement(By.xpath("//body/div[1]/div[2]/section[1]/div[1]/div[3]/div[1]/section[1]/div[1]/form[1]/fieldset[1]/div[5]")).click();
+		
+	}
+
+}
